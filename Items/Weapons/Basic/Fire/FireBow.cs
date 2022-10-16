@@ -38,7 +38,7 @@ public class FireBow : ModItem
     {
         Recipe recipe = CreateRecipe()
             .AddIngredient(ItemID.Wood, 25)
-            //.AddIngredient(Mod.Find<ModItem>("FireRuby").Type, 10)
+            .AddIngredient(Mod.Find<ModItem>("FireRubyItem").Type, 10)
             .AddIngredient(ItemID.GoldBow)
             .AddIngredient(ItemID.HellstoneBar, 10)
             .AddTile(TileID.WorkBenches)

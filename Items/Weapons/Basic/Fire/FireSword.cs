@@ -19,8 +19,8 @@ public class FireSword : ModItem
     {
         Item.damage = 30;
         Item.DamageType = DamageClass.Melee;
-        Item.width = 40;
-        Item.height = 40;
+        Item.width = 25;
+        Item.height = 25;
         Item.useTime = 23;
         Item.useAnimation = 23;
         Item.useStyle = ItemUseStyleID.Swing;

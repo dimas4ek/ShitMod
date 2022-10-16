@@ -39,8 +39,7 @@ public class WaterSword : ModItem
     public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
     {
         target.AddBuff(BuffID.Slow, 120);
-        // будет спавнить мелких слизней
-        // около воды будет больше урона
+        
         
     }
 
@@ -54,6 +53,9 @@ public class WaterSword : ModItem
         {
             Item.damage = 42;
         }
+
+        // будет спавнить мелких слизней
+        
     }
 
 
