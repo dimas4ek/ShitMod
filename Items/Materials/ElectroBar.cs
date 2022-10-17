@@ -1,4 +1,4 @@
-﻿using ShitMod.Tiles.Ores;
+﻿using ShitMod.Items.Placeable.Ores;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;

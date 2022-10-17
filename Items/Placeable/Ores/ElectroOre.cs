@@ -1,8 +1,8 @@
-﻿
+﻿using ShitMod.Tiles.Ores;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ShitMod.Tiles.Ores
+namespace ShitMod.Items.Placeable.Ores
 {
     public class ElectroOre : ModItem
     {
@@ -17,9 +17,9 @@ namespace ShitMod.Tiles.Ores
         {
             Item.width = 16;
             Item.height = 16;
-            
+
             Item.maxStack = 999;
-            
+
             Item.useStyle = ItemUseStyleID.Swing;
             Item.useTime = 10;
             Item.value = 100;
@@ -28,7 +28,7 @@ namespace ShitMod.Tiles.Ores
             Item.useTurn = true;
             Item.autoReuse = true;
             Item.consumable = true;
-            
+
             Item.createTile = ModContent.TileType<ElectroOreTile>();
         }
     }
