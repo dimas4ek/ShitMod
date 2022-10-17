@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using ShitMod.Tiles.Ores;
 using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.GameContent.Generation;
@@ -16,26 +17,37 @@ namespace ShitMod
     {
         #region Generation
 
+        //Генерация в мире
         public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
         {
-            int shiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
+            //Shinies - большинство ванильных руд
+            int shiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies")); // находим по индексу
             if (shiniesIndex != -1)
             {
-                tasks.Insert(shiniesIndex + 1, new PassLegacy("Electro Ore Spawn", GenerateModOre));
-
+                tasks.Insert(shiniesIndex + 1, new PassLegacy("Electro Ore Spawn", GenerateModOre)); // вставляем нашу руду вместо ванильной
             }
         }
 
         private void GenerateModOre(GenerationProgress progress, GameConfiguration configuration)
         {
-            progress.Message = "Spawning Mod Ores";
+            progress.Message = "Spawning Mod Ores"; // ообщение пользователю
 
-            for (int i = 0; i < (int)((double)(Main.maxTilesX * Main.maxTilesY) * 6E-05); i++)
+            // перебор всех блоков в мире
+            for (int i = 0; i < (int)((Main.maxTilesX * Main.maxTilesY) * 6E-05); i++) // 6Е-05 = 0.00006
             {
+                // выбор рандомных координат по X и Y
                 int x = WorldGen.genRand.Next(200, Main.maxTilesX - 200);
-                int y = WorldGen.genRand.Next((int)WorldGen.worldSurfaceLow, Main.maxTilesY - 500);
+                int y = WorldGen.genRand.Next((int)WorldGen.worldSurfaceLow - 100, Main.maxTilesY - 500);
 
+                // функция для размещения руды с силой и шагом
                 WorldGen.TileRunner(x, y, WorldGen.genRand.Next(4, 7), WorldGen.genRand.Next(3, 6), Mod.Find<ModTile>("ElectroOreTile").Type);
+
+
+                //Tile tile = Framing.GetTileSafely(x, y);
+                //if (tile.HasTile && tile.TileType == TileID.SnowBlock && tile.TileType == TileID.IceBlock)
+                //{
+                //    WorldGen.TileRunner(x, y, WorldGen.genRand.Next(4, 7), WorldGen.genRand.Next(3, 6), ModContent.TileType<ElectroOreTile>());
+                //}
             }
         }
 

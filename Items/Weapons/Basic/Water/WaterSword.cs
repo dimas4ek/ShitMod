@@ -36,6 +36,7 @@ public class WaterSword : ModItem
         Item.shootSpeed = 10f;
         Item.scale = 1.5f;
     }
+
     public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
     {
         target.AddBuff(BuffID.Slow, 120);
