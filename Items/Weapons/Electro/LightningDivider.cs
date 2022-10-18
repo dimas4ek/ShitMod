@@ -1,8 +1,8 @@
-﻿using ShitMod.Tiles.Ores;
+﻿using ShitMod.Items.Materials;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ShitMod.Items.Weapons;
+namespace ShitMod.Items.Weapons.Electro;
 
 public class LightningDivider : ModItem
 {

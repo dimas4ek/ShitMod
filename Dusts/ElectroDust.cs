@@ -2,7 +2,8 @@
 using Terraria.ModLoader;
 using Terraria;
 
-namespace ShitMod.Dusts;
+namespace ShitMod.Dusts
+{
     public class ElectroDust : ModDust
     {
         public override void OnSpawn(Dust dust)
@@ -25,4 +26,5 @@ namespace ShitMod.Dusts;
             }
             return false;
         }
-    }   
+    }
+}

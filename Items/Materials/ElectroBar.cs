@@ -1,10 +1,11 @@
 ﻿using ShitMod.Items.Placeable.Ores;
+using ShitMod.Tiles.Ores;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ShitMod.Tiles.Ores
+namespace ShitMod.Items.Materials
 {
     public class ElectroBar : ModItem
     {
