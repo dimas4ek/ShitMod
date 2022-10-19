@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using ShitMod.Projectiles.xuy;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -29,7 +30,7 @@ public class GelStaff : ModItem
         Item.rare = ItemRarityID.Green;
         Item.UseSound = SoundID.Item8;
         Item.autoReuse = true;
-        Item.shoot = Mod.Find<ModProjectile>("TestProjectile").Type;
+        Item.shoot = ModContent.ProjectileType<TestProjectile>();
         Item.shootSpeed = 6f;
         Item.mana = 10;
         Item.noMelee = true;

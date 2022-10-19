@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace ShitMod.Dusts
 {
-    public class BetterOnFire : ModDust
+    public class FireDust : ModDust
     {
         public override void OnSpawn(Dust dust)
         {

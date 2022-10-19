@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using ShitMod.Projectiles.Elements.Void;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -34,7 +35,7 @@ namespace ShitMod.Items.Weapons.Void
             Item.rare = ItemRarityID.Purple;
             Item.UseSound = SoundID.Item5;
             Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("VoidArrow").Type;
+            Item.shoot = ModContent.ProjectileType<VoidArrow>();
             Item.shootSpeed = 12f;
             Item.useAmmo = AmmoID.Arrow;
             Item.crit = 25;
@@ -57,7 +58,7 @@ namespace ShitMod.Items.Weapons.Void
             for (i = 0; i < 1; i++)
             {
                 offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                Projectile.NewProjectile(source, position, velocity, Mod.Find<ModProjectile>("VoidArrow").Type,
+                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<VoidArrow>(),
                     damage, knockback, player.whoAmI);
             }
 

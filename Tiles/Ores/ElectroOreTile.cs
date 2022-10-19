@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using ShitMod.Items.Placeable.Ores;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -16,7 +17,7 @@ namespace ShitMod.Tiles.Ores
 
             TileID.Sets.Ore[Type] = true;
 
-            ItemDrop = Mod.Find<ModItem>("ElectroOre").Type;
+            ItemDrop = ModContent.ItemType<ElectroOre>();
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Electro Ore");
             AddMapEntry(new Color(30, 200, 25), name);

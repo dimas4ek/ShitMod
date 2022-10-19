@@ -29,7 +29,7 @@ public class GelPistol : ModItem
         //Item.rare = ItemRarityID.Blue;
         //Item.UseSound = SoundID.Item11;
         //Item.autoReuse = true;
-        //Item.shoot = ProjectileID.Bullet; //Mod.Find<ModProjectile>("GelBulletProjectile").Type
+        //Item.shoot = ProjectileID.Bullet;
         //Item.useAmmo = AmmoID.Bullet;
         //Item.shootSpeed = 6.5f;
         //Item.noMelee = true;

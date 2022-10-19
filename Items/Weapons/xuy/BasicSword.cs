@@ -28,7 +28,6 @@ namespace ShitMod.Items.Weapons.xuy
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
-            //Item.shoot = Mod.Find<ModProjectile>("TestProjectile").Type;
             Item.shoot = ModContent.ProjectileType<TestProjectile>();
             Item.shootSpeed = 10f;
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using ShitMod.Items.Placeable;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.DataStructures;
@@ -38,7 +39,7 @@ public class FireBow : ModItem
     {
         Recipe recipe = CreateRecipe()
             .AddIngredient(ItemID.Wood, 25)
-            .AddIngredient(Mod.Find<ModItem>("FireRubyItem").Type, 10)
+            .AddIngredient(ModContent.ItemType<FireRubyItem>(), 10)
             .AddIngredient(ItemID.GoldBow)
             .AddIngredient(ItemID.HellstoneBar, 10)
             .AddTile(TileID.WorkBenches)

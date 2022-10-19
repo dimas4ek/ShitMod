@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ShitMod.Buffs;
+using ShitMod.Items.Placeable;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
@@ -39,7 +41,7 @@ public class FireSword : ModItem
     }
     public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
     {
-        target.AddBuff(Mod.Find<ModBuff>("BetterOnFire").Type, 120);
+        target.AddBuff(ModContent.BuffType<BetterOnFire>(), 120);
 
     }
 
@@ -60,7 +62,7 @@ public class FireSword : ModItem
     {
         CreateRecipe()
             .AddIngredient(ItemID.Wood, 20)
-            .AddIngredient(Mod.Find<ModItem>("FireRubyItem"), 5)
+            .AddIngredient(ModContent.ItemType<FireRubyItem>(), 5)
             .AddTile(TileID.Anvils)
             .Register();
     }

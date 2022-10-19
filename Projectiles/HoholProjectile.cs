@@ -31,7 +31,7 @@ namespace ShitMod.Projectiles
         {
             Projectile.velocity.Y += Projectile.ai[0];
             if (!Main.rand.NextBool(3)) return;
-            var dust = Dust.NewDust(Projectile.Center, 1, 1, Mod.Find<ModDust>("Salo").Type, 0f, 0f, 0, default(Color), 1f);
+            var dust = Dust.NewDust(Projectile.Center, 1, 1, ModContent.DustType<Salo>(), 0f, 0f, 0, default(Color), 1f);
             Main.dust[dust].scale = 1.5f;
         }
 

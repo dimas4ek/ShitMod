@@ -40,7 +40,7 @@ namespace ShitMod
                 int y = WorldGen.genRand.Next((int)WorldGen.worldSurfaceLow - 100, Main.maxTilesY - 500);
 
                 // функция для размещения руды с силой и шагом
-                WorldGen.TileRunner(x, y, WorldGen.genRand.Next(4, 7), WorldGen.genRand.Next(3, 6), Mod.Find<ModTile>("ElectroOreTile").Type);
+                WorldGen.TileRunner(x, y, WorldGen.genRand.Next(4, 7), WorldGen.genRand.Next(3, 6), ModContent.TileType<ElectroOreTile>());
 
                 // спавн происходит только в снежном биоме (снежные и ледяные блоки)
                 //Tile tile = Framing.GetTileSafely(x, y);

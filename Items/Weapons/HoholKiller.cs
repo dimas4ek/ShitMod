@@ -31,7 +31,7 @@ public class HoholKiller : ModItem
         Item.rare = ItemRarityID.Orange;
         Item.UseSound = SoundID.Item8;
         Item.autoReuse = true;
-        Item.shoot = Mod.Find<ModProjectile>("HoholProjectile").Type;
+        Item.shoot = ModContent.ProjectileType<HoholProjectile>();
         //Item.shoot = ProjectileID.AmethystBolt;
         Item.shootSpeed = 6f;
         Item.mana = 10;

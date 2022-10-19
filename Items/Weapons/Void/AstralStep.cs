@@ -31,13 +31,13 @@ namespace ShitMod.Items.Weapons.Void
         //    Item.rare = ItemRarityID.Purple;
         //    Item.UseSound = SoundID.Item1;
         //    Item.autoReuse = true;
-        //    //Item.shoot = Mod.Find<ModProjectile>("TestProjectile").Type;
+        //    //Item.shoot = ModContent.ProjectileType<>();
         //    Item.shootSpeed = 10f;
         //}
 
         ////public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
         ////{
-        ////    target.AddBuff(Mod.Find<ModBuff>("SomeBuff").Type, 120);
+        ////    target.AddBuff(ModContent.BuffType<>(), 120);
         ////}
 
         //public override void AddRecipes()
@@ -75,7 +75,7 @@ namespace ShitMod.Items.Weapons.Void
             Item.rare = ItemRarityID.Purple;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
-            //Item.shoot = Mod.Find<ModProjectile>("TestProjectile").Type;
+            //Item.shoot = ModContent.ProjectileType<>();
             Item.shootSpeed = 10f;
         }
 

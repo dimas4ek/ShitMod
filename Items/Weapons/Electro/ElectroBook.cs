@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using ShitMod.Projectiles;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -27,7 +28,7 @@ namespace ShitMod.Items.Weapons.Electro
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item33;
             Item.autoReuse = true;
-            Item.shoot = Mod.Find<ModProjectile>("ElectroProjectile").Type;
+            Item.shoot = ModContent.ProjectileType<ElectroProjectile>();
             Item.shootSpeed = 6f;
         }
 

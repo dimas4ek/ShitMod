@@ -64,7 +64,7 @@ public class WaterSword : ModItem
     {
         CreateRecipe()
             .AddIngredient(ItemID.Wood, 20)
-            //.AddIngredient(Mod.Find<ModItem>("WaterSapphire"), 5)
+            //.AddIngredient(ModContent.ItemType<WaterSapphire>(), 5)
             .AddTile(TileID.Anvils)
             .Register();
     }

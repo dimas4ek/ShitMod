@@ -26,7 +26,6 @@ public class LightningDivider : ModItem
         Item.rare = ItemRarityID.Purple;
         Item.UseSound = SoundID.Item1;
         Item.autoReuse = true;
-        //Item.shoot = Mod.Find<ModProjectile>("TestProjectile").Type;
         Item.shootSpeed = 10f;
         Item.scale = 1.5f;
     }
