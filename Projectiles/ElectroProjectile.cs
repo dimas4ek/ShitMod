@@ -1,10 +1,10 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using System;
-using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow.PointsToAnalysis;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
 using ShitMod.Dusts;
+using ShitMod.Buffs;
 
 namespace ShitMod.Projectiles
 {
@@ -29,7 +29,10 @@ namespace ShitMod.Projectiles
             Projectile.penetrate = 1;
             delay = 0;
         }
-
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            target.AddBuff(BuffID.Stoned, 60);
+        }
         public override void AI()
         {
             delay += 1;

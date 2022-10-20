@@ -4,6 +4,7 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
+using ShitMod.Projectiles;
 
 namespace ShitMod.Items.Weapons.Basic.Fire;
 
@@ -34,7 +35,14 @@ public class FireBow : ModItem
         Item.shootSpeed = 16f;
         Item.useAmmo = AmmoID.Arrow;
     }
-
+    public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage,
+            ref float knockback)
+    {
+        if (type == ProjectileID.PurificationPowder)
+        {
+            type = ModContent.ProjectileType<FireArrow>();
+        }
+    }
     public override void AddRecipes()
     {
         Recipe recipe = CreateRecipe()

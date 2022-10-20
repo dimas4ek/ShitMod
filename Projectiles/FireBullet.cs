@@ -4,6 +4,7 @@ using ShitMod.Buffs;
 using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -17,6 +18,7 @@ namespace ShitMod.Projectiles
             DisplayName.SetDefault("Example Bullet"); // The English name of the projectile
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5; // The length of old position to be recorded
             ProjectileID.Sets.TrailingMode[Projectile.type] = 0; // The recording mode
+
         }
 
         public override void SetDefaults()
@@ -37,51 +39,9 @@ namespace ShitMod.Projectiles
 
             AIType = ProjectileID.Bullet;
         }
-
-        public override bool OnTileCollide(Vector2 oldVelocity)
-        {
-            Projectile.penetrate--;
-            if (Projectile.penetrate <= 0)
-            {
-                Projectile.Kill();
-            }
-            else
-            {
-                Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
-                SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
-
-                if (Math.Abs(Projectile.velocity.X - oldVelocity.X) > float.Epsilon)
-                {
-                    Projectile.velocity.X = -oldVelocity.X;
-                }
-
-                if (Math.Abs(Projectile.velocity.Y - oldVelocity.Y) > float.Epsilon)
-                {
-                    Projectile.velocity.Y = -oldVelocity.Y;
-                }
-            }
-
-            return false;
-        }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.AddBuff(ModContent.BuffType<BetterOnFire>(), 120);
-        }
-
-        public override bool PreDraw(ref Color lightColor)
-        {
-            Main.instance.LoadProjectile(Projectile.type);
-            Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
-
-            Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, Projectile.height * 0.5f);
-            for (int k = 0; k < Projectile.oldPos.Length; k++)
-            {
-                Vector2 drawPos = (Projectile.oldPos[k] - Main.screenPosition) + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
-                Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
-                Main.EntitySpriteDraw(texture, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
-            }
-
-            return true;
         }
 
         public override void Kill(int timeLeft)

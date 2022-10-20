@@ -1,5 +1,6 @@
 ﻿using ShitMod.Projectiles;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,6 +12,11 @@ namespace ShitMod.Items.Weapons.Electro
         {
             DisplayName.SetDefault("Шокотерапия");
             Tooltip.SetDefault("'Zap them to dust'");
+
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+            ItemID.Sets.AnimatesAsSoul[Item.type] = true;
+
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
