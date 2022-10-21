@@ -12,16 +12,19 @@ public class ShitModGlobalNPC : GlobalNPC
     public override bool InstancePerEntity => true;
 
 
-    public bool BetterOnFire = false;
+    public bool BetterOnFire;
+    public bool Paralysis;
 
     public override void SetDefaults(NPC npc)
     {
         BetterOnFire = false;
+        Paralysis = false;
     }
 
     public override void ResetEffects(NPC npc)
     {
         BetterOnFire = false;
+        Paralysis = false;
     }
 
     public override void UpdateLifeRegen(NPC npc, ref int damage)
@@ -37,6 +40,11 @@ public class ShitModGlobalNPC : GlobalNPC
             {
                 damage = 3;
             }
+        }
+
+        if (Paralysis)
+        {
+            npc.AddBuff(BuffID.Electrified, 120);
         }
     }
 
@@ -58,11 +66,11 @@ public class ShitModGlobalNPC : GlobalNPC
             }
             Lighting.AddLight(npc.position, 1f, 0.8f, 0.7f);
         }
-        if(npc.HasBuff(BuffID.Stoned))
+        if(Paralysis)
         {
             if (Main.rand.Next(4) < 3)
             {
-                int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<ElectroDust>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default(Color), 3.5f);
+                int dust = Dust.NewDust(npc.position - new Vector2(2f, 2f), npc.width + 4, npc.height + 4, ModContent.DustType<ElectroDust>(), npc.velocity.X * 0.4f, npc.velocity.Y * 0.4f, 100, default(Color), 0.3f);
                 Main.dust[dust].noGravity = true;
                 Main.dust[dust].velocity *= 1.8f;
                 Main.dust[dust].velocity.Y -= 0.5f;

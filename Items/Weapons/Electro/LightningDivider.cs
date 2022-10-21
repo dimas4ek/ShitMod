@@ -1,4 +1,6 @@
-﻿using ShitMod.Items.Materials;
+﻿using ShitMod.Buffs;
+using ShitMod.Items.Materials;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -28,6 +30,12 @@ public class LightningDivider : ModItem
         Item.autoReuse = true;
         Item.shootSpeed = 10f;
         Item.scale = 1.5f;
+    }
+
+    public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+    {
+        target.AddBuff(ModContent.BuffType<Paralysis>(), 60);
+        target.AddBuff(BuffID.Electrified, 120, false);
     }
 
     public override void AddRecipes()
