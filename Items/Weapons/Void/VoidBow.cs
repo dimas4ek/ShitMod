@@ -46,24 +46,24 @@ namespace ShitMod.Items.Weapons.Void
             return Main.rand.Next(5) <= 2;
         }
 
-        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position,
-            Vector2 velocity, int type,
-            int damage, float knockback)
-        {
-            float spread = 45f * 0.0174f;
-            double startAngle = Math.Atan2(velocity.X, velocity.Y) - spread / 2;
-            double deltaAngle = spread / 8f;
-            double offsetAngle;
-            int i;
-            for (i = 0; i < 1; i++)
-            {
-                offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
-                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<VoidArrow>(),
-                    damage, knockback, player.whoAmI);
-            }
+        //public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position,
+        //    Vector2 velocity, int type,
+        //    int damage, float knockback)
+        //{
+        //    float spread = 45f * 0.0174f;
+        //    double startAngle = Math.Atan2(velocity.X, velocity.Y) - spread / 2;
+        //    double deltaAngle = spread / 8f;
+        //    double offsetAngle;
+        //    int i;
+        //    for (i = 0; i < 1; i++)
+        //    {
+        //        offsetAngle = startAngle + deltaAngle * (i + i * i) / 2f + 32f * i;
+        //        Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<VoidArrow>(),
+        //            damage, knockback, player.whoAmI);
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
         public override Vector2? HoldoutOffset()
         {

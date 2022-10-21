@@ -1,10 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using IL.Terraria.Modules;
+using Microsoft.Xna.Framework;
 using ShitMod.Items.Placeable;
 using Terraria.ModLoader;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using ShitMod.Projectiles;
+using ShitMod.Projectiles.Elements.Void;
 
 namespace ShitMod.Items.Weapons.Basic.Fire;
 
@@ -31,18 +33,18 @@ public class FireBow : ModItem
         Item.rare = ItemRarityID.Blue;
         Item.UseSound = SoundID.Item5;
         Item.autoReuse = true;
-        Item.shoot = ProjectileID.PurificationPowder;
+        Item.shoot = ModContent.ProjectileType<FireArrow>();
         Item.shootSpeed = 16f;
         Item.useAmmo = AmmoID.Arrow;
     }
-    public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage,
-            ref float knockback)
+
+    public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type,
+        int damage, float knockback)
     {
-        if (type == ProjectileID.PurificationPowder)
-        {
-            type = ModContent.ProjectileType<FireArrow>();
-        }
+        Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<FireArrow>(), damage, knockback, player.whoAmI);
+        return false;
     }
+
     public override void AddRecipes()
     {
         Recipe recipe = CreateRecipe()
