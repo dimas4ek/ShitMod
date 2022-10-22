@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace ShitMod.Items.Weapons.Electro
 {
-    public class ElectroBook : ModItem
+    public class FireBook : ModItem
     {
         public override void SetStaticDefaults()
         {
