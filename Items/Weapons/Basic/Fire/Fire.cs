@@ -12,6 +12,11 @@ namespace ShitMod.Items.Weapons.Basic.Fire
         {
             DisplayName.SetDefault("Огненый всплеск");
             Tooltip.SetDefault("'Fire them to dust'");
+
+            Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(4, 4));
+            ItemID.Sets.AnimatesAsSoul[Item.type] = true;
+
+            Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
         public override void SetDefaults()
