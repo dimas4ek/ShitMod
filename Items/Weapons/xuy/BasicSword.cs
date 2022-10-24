@@ -25,11 +25,12 @@ namespace ShitMod.Items.Weapons.xuy
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 5;
             Item.value = 1000;
+            Item.scale = 0.3f;
             Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
             //Item.shoot = ModContent.ProjectileType<TestProjectile>();
-            Item.shootSpeed = 10f;
+            Item.shootSpeed = 2f;
 
         }
 

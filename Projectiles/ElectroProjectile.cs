@@ -31,7 +31,7 @@ namespace ShitMod.Projectiles
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(BuffID.Stoned, 60);
+            target.AddBuff(ModContent.BuffType<Paralysis>(), 60);
         }
         public override void AI()
         {

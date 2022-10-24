@@ -36,6 +36,7 @@ namespace ShitMod.Items.Weapons.Basic.Fire
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<FireProjectile>();
             Item.shootSpeed = 8f;
+            Item.scale = 0.5f;
         }
 
         public override void AddRecipes()
