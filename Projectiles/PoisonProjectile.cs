@@ -26,6 +26,7 @@ namespace ShitMod.Projectiles
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             target.AddBuff(ModContent.BuffType<PoisonPuls>(), 300);
+            target.AddBuff(BuffID.Slow, 60);
         }
 
         public override void AI()
