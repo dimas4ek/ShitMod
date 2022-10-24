@@ -1,11 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
 using ShitMod.Buffs;
-using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ShitMod.Projectiles
+namespace ShitMod.Projectiles.Weapons.Basic.Fire
 {
     public class FireArrow : ModProjectile
     {
@@ -42,7 +41,7 @@ namespace ShitMod.Projectiles
 
         public override void AI()
         {
-            Projectile.rotation = Utils.ToRotation(Projectile.velocity) + (float)Math.PI / 2f;
+            Projectile.rotation = Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
         }
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)

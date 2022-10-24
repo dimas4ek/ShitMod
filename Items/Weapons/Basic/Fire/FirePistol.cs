@@ -3,9 +3,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using EntitySource_ItemUse_WithAmmo = Terraria.DataStructures.EntitySource_ItemUse_WithAmmo;
-using ShitMod.Projectiles;
 using ShitMod.Buffs;
 using ShitMod.Projectiles.xuy;
+using ShitMod.Projectiles.Weapons.Basic.Fire;
 
 namespace ShitMod.Items.Weapons.Basic.Fire
 {

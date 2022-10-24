@@ -1,15 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ShitMod.Buffs;
-using System;
+﻿using ShitMod.Buffs;
 using Terraria;
 using Terraria.Audio;
-using Terraria.DataStructures;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ShitMod.Projectiles
+namespace ShitMod.Projectiles.Weapons.Basic.Fire
 {
     public class FireBullet : ModProjectile
     {
@@ -35,7 +30,7 @@ namespace ShitMod.Projectiles
             Projectile.light = 0.5f;
             Projectile.ignoreWater = true;
             Projectile.tileCollide = true;
-            Projectile.extraUpdates = 1; 
+            Projectile.extraUpdates = 1;
 
             AIType = ProjectileID.Bullet;
         }

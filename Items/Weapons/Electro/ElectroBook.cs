@@ -1,4 +1,4 @@
-﻿using ShitMod.Projectiles;
+﻿using ShitMod.Projectiles.Weapons.Electro;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;

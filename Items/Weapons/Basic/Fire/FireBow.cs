@@ -5,8 +5,8 @@ using Terraria.ModLoader;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using ShitMod.Projectiles;
 using ShitMod.Projectiles.Elements.Void;
+using ShitMod.Projectiles.Weapons.Basic.Fire;
 
 namespace ShitMod.Items.Weapons.Basic.Fire;
 

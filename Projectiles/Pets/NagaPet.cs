@@ -15,20 +15,31 @@ namespace ShitMod.Projectiles.Pets
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Naga Siren");
-            Main.RegisterItemAnimation(Projectile.type, new DrawAnimationVertical(10, 5));
-            Main.projFrames[ModContent.ProjectileType<NagaPet>()] = 5;
+            //Main.RegisterItemAnimation(Projectile.type, new DrawAnimationVertical(10, 5));
+            //Main.projFrames[ModContent.ProjectileType<NagaPet>()] = 5;
+            Main.projFrames[Projectile.type] = 4;
+            Main.projPet[Projectile.type] = true;
+            ProjectileID.Sets.LightPet[Projectile.type] = false;
         }
 
         public override void SetDefaults()
         {
-            Projectile.width = 80;
-            Projectile.height = 70;
-            Projectile.aiStyle = 0;
-            Projectile.penetrate = -1;
-            Projectile.friendly = true;
-            Projectile.ownerHitCheck = true;
-            Projectile.ignoreWater = true;
-            Projectile.tileCollide = true;
+            //Projectile.width = 80;
+            //Projectile.height = 70;
+            //Projectile.aiStyle = 0;
+            //Projectile.penetrate = -1;
+            //Projectile.friendly = true;
+            //Projectile.ownerHitCheck = true;
+            //Projectile.ignoreWater = true;
+            //Projectile.tileCollide = true;
+            Projectile.CloneDefaults(ProjectileID.ZephyrFish);
+        }
+
+        public override bool PreAI()
+        {
+            Player player = Main.player[Projectile.owner];
+            player.zephyrfish = false;
+            return true;
         }
 
         public override void AI()
@@ -37,10 +48,10 @@ namespace ShitMod.Projectiles.Pets
             ShitModPlayer shitModPlayerPlayer = player.GetModPlayer<ShitModPlayer>();
             if (player.dead)
             {
-                shitModPlayerPlayer.Pet = false;
+                shitModPlayerPlayer.NagaPet = false;
             }
 
-            if (shitModPlayerPlayer.Pet)
+            if (shitModPlayerPlayer.NagaPet)
             {
                 Projectile.timeLeft = 2;
             }

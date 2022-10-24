@@ -5,6 +5,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using ShitMod.Projectiles.Pets;
+using ShitMod.Buffs.Pets;
+using Terraria.GameContent.Creative;
 
 namespace ShitMod.Items.Pets
 {
@@ -14,13 +16,15 @@ namespace ShitMod.Items.Pets
         {
             DisplayName.SetDefault("Modded Naga Key");
             Tooltip.SetDefault("Summon a Naga to your side");
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+
         }
 
         public override void SetDefaults()
         {
-            Item.CloneDefaults(ItemID.UnluckyYarn);
-            Item.shoot = ModContent.ProjectileType<NagaPet>();
-            Item.buffType = ModContent.BuffType<PoisonPuls>();
+            Item.CloneDefaults(ItemID.ZephyrFish);
+            Item.shoot = ModContent.ProjectileType<NagaPet>(); 
+            Item.buffType = ModContent.BuffType<NagaBuff>(); 
         }
 
         public override void AddRecipes()
