@@ -24,14 +24,15 @@ namespace ShitMod.Projectiles.Pets
 
         public override void SetDefaults()
         {
-            //Projectile.width = 80;
-            //Projectile.height = 70;
+            Projectile.width = 80;
+            Projectile.height = 70;
             //Projectile.aiStyle = 0;
             //Projectile.penetrate = -1;
             //Projectile.friendly = true;
             //Projectile.ownerHitCheck = true;
-            //Projectile.ignoreWater = true;
-            //Projectile.tileCollide = true;
+            Projectile.ignoreWater = true;
+            Projectile.tileCollide = true;
+            Projectile.scale = 0.5f;
             Projectile.CloneDefaults(ProjectileID.ZephyrFish);
         }
 
