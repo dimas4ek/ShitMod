@@ -8,10 +8,17 @@ namespace ShitMod.Items.Weapons.Basic.Water
 {
     public class WaterStaff : ModItem
     {
+        private int[] projArr =
+        {
+            ModContent.ProjectileType<WaterProjectile1>(), 
+            ModContent.ProjectileType<WaterProjectile2>(),
+            ModContent.ProjectileType<WaterProjectile3>()
+        };
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Water Staff");
-            Tooltip.SetDefault("'Water them to dust'");
+            Tooltip.SetDefault("Shoots small water drops");
         }
 
         public override void SetDefaults()
@@ -22,7 +29,7 @@ namespace ShitMod.Items.Weapons.Basic.Water
             Item.height = 30;
             Item.useTime = 1;
             Item.useAnimation = 1;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 1;
             Item.value = 10000;
@@ -32,6 +39,12 @@ namespace ShitMod.Items.Weapons.Basic.Water
             Item.shoot = ModContent.ProjectileType<WaterProjectile1>();
             Item.shootSpeed = 8f;
             Item.scale = 0.5f;
+        }
+
+        public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage,
+            ref float knockback)
+        {
+            type = Main.rand.Next(projArr);
         }
 
         public override void MeleeEffects(Player player, Rectangle hitbox)
@@ -44,22 +57,8 @@ namespace ShitMod.Items.Weapons.Basic.Water
             {
                 Item.damage = 2;
             }
-
-            //рандомные проджектайлы
-            int r = Main.rand.Next(0, 100);
-            if (r < 33)
-            {
-                Item.shoot = ModContent.ProjectileType<WaterProjectile1>();
-            }
-            else if (r >= 33 && r < 66)
-            {
-                Item.shoot = ModContent.ProjectileType<WaterProjectile2>();
-            }
-            else if (r >= 66)
-            {
-                Item.shoot = ModContent.ProjectileType<WaterProjectile3>();
-            }
         }
+
         public override void AddRecipes()
         {
             CreateRecipe()
