@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
-using ShitMod.Projectiles.Weapons.Basic.Fire;
+using ShitMod.Projectiles.Weapons.Basic.Water;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -30,7 +29,7 @@ namespace ShitMod.Items.Weapons.Basic.Water
             Item.rare = ItemRarityID.Orange;
             Item.UseSound = SoundID.Item33;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<FireProjectile>();
+            Item.shoot = ModContent.ProjectileType<WaterProjectile1>();
             Item.shootSpeed = 8f;
             Item.scale = 0.5f;
         }
@@ -43,11 +42,23 @@ namespace ShitMod.Items.Weapons.Basic.Water
 
             if (player.ZoneRain)
             {
-                Item.damage = 42;
+                Item.damage = 2;
             }
 
-            // будет спавнить мелких слизней
-
+            //рандомные проджектайлы
+            int r = Main.rand.Next(0, 100);
+            if (r < 33)
+            {
+                Item.shoot = ModContent.ProjectileType<WaterProjectile1>();
+            }
+            else if (r >= 33 && r < 66)
+            {
+                Item.shoot = ModContent.ProjectileType<WaterProjectile2>();
+            }
+            else if (r >= 66)
+            {
+                Item.shoot = ModContent.ProjectileType<WaterProjectile3>();
+            }
         }
         public override void AddRecipes()
         {

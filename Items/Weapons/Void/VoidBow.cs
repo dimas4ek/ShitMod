@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
-using ShitMod.Projectiles.Elements.Void;
+using ShitMod.Projectiles.Weapons.Basic.Fire;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -35,7 +35,7 @@ namespace ShitMod.Items.Weapons.Void
             Item.rare = ItemRarityID.Purple;
             Item.UseSound = SoundID.Item5;
             Item.autoReuse = true;
-            Item.shoot = ModContent.ProjectileType<VoidArrow>();
+            Item.shoot = ModContent.ProjectileType<FireArrow>();
             Item.shootSpeed = 12f;
             Item.useAmmo = AmmoID.Arrow;
             Item.crit = 25;
