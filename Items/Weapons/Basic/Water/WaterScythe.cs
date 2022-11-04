@@ -1,4 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
+using ShitMod.Projectiles;
+using ShitMod.Projectiles.Weapons.Basic.Fire;
 using ShitMod.Projectiles.Weapons.Basic.Water;
 using Terraria;
 using Terraria.ID;
