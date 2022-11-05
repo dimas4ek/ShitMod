@@ -4,7 +4,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ShitMod.Items.Weapons.Electro
+namespace ShitMod.Items.Weapons.Advanced.Electro
 {
     public class ElectroBook : ModItem
     {
@@ -27,7 +27,7 @@ namespace ShitMod.Items.Weapons.Electro
             Item.height = 30;
             Item.useTime = 20;
             Item.useAnimation = 20;
-            Item.useStyle = 5;
+            Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 5;
             Item.value = 10000;

@@ -5,7 +5,7 @@ using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ShitMod.Items.Weapons.Void
+namespace ShitMod.Items.Weapons.Advanced.Void
 {
     public class AstralStep : ModItem
     {

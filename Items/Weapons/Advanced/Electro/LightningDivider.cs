@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ShitMod.Items.Weapons.Electro;
+namespace ShitMod.Items.Weapons.Advanced.Electro;
 
 public class LightningDivider : ModItem
 {
