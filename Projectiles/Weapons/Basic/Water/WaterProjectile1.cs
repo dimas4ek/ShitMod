@@ -1,5 +1,6 @@
 ﻿using ShitMod.Buffs;
 using ShitMod.Dusts;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -25,7 +26,7 @@ namespace ShitMod.Projectiles.Weapons.Basic.Water
             Projectile.ignoreWater = false;
             Projectile.tileCollide = false;
             Projectile.penetrate = 1;
-            Projectile.scale = 0.4f;
+            //Projectile.scale = 0.4f;
             delay = 0;
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
@@ -36,11 +37,13 @@ namespace ShitMod.Projectiles.Weapons.Basic.Water
         }
         public override void AI()
         {
-            Projectile.velocity.X *= .99f;
-            Projectile.velocity.Y += 0.1f;
-            if (Projectile.velocity.X < 0)
-                Projectile.spriteDirection = -1;
-            Projectile.rotation += Projectile.velocity.X / 32;
+            //Projectile.velocity.X *= .99f;
+            //Projectile.velocity.Y += 0.1f;
+            //if (Projectile.velocity.X < 0)
+            //    Projectile.spriteDirection = -1;
+            //Projectile.rotation += Projectile.velocity.X / 32;
+
+            Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
 
             delay += 1;
             Projectile.velocity.Y += Projectile.ai[0];

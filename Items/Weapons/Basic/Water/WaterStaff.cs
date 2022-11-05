@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using ShitMod.Projectiles.Weapons.Basic.Water;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -19,16 +20,17 @@ namespace ShitMod.Items.Weapons.Basic.Water
         {
             DisplayName.SetDefault("Water Staff");
             Tooltip.SetDefault("Shoots small water drops");
+            Item.staff[Item.type] = true;
         }
 
         public override void SetDefaults()
         {
-            Item.damage = 1;
-            Item.mana = 1;
+            Item.damage = 20;
+            Item.mana = 7;
             Item.width = 28;
             Item.height = 30;
-            Item.useTime = 1;
-            Item.useAnimation = 1;
+            Item.useTime = 10;
+            Item.useAnimation = 10;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
             Item.knockBack = 1;
@@ -38,7 +40,7 @@ namespace ShitMod.Items.Weapons.Basic.Water
             Item.autoReuse = true;
             Item.shoot = ModContent.ProjectileType<WaterProjectile1>();
             Item.shootSpeed = 8f;
-            Item.scale = 0.5f;
+            Item.scale = 1f;
         }
 
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage,
@@ -47,9 +49,19 @@ namespace ShitMod.Items.Weapons.Basic.Water
             type = Main.rand.Next(projArr);
         }
 
+        public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+        {
+            Vector2 offset = new Vector2(velocity.X * 10, velocity.Y * 10);
+            position += offset;
+
+            Projectile.NewProjectile(source, position, velocity, type, damage, knockback, player.whoAmI);
+
+            return false;
+        }
+
         public override void MeleeEffects(Player player, Rectangle hitbox)
         {
-            var dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Water, 0f, 0f, 0, new Color(255, 255, 0), 2f);
+            var dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Water, 0f, 0f, 0, new Color(255, 0, 0), 1f);
             Main.dust[dust].noGravity = true;
             Main.dust[dust].velocity *= 0f;
 
@@ -57,6 +69,11 @@ namespace ShitMod.Items.Weapons.Basic.Water
             {
                 Item.damage = 2;
             }
+        }
+
+        public override Vector2? HoldoutOffset()
+        {
+            return new Vector2(-20, 4);
         }
 
         public override void AddRecipes()
