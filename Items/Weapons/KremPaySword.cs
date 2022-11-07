@@ -28,7 +28,7 @@ public class KremPaySword : ModItem
         Item.UseSound = SoundID.Item1;
         Item.autoReuse = true;
         Item.shootSpeed = 20f;
-        Item.scale = 0.05f;
+        Item.scale = 1f;
     }
 
     public override void MeleeEffects(Player player, Rectangle hitbox)

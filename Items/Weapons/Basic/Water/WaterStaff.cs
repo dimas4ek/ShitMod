@@ -67,7 +67,7 @@ namespace ShitMod.Items.Weapons.Basic.Water
 
             if (player.ZoneRain)
             {
-                Item.damage = 2;
+                Item.damage = 40;
             }
         }
 
