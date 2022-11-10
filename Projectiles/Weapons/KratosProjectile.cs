@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ShitMod.Buffs;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
@@ -18,7 +19,7 @@ namespace ShitMod.Projectiles.Weapons
 
         public override void SetDefaults()
         {
-            Projectile.DamageType = DamageClass.Melee;
+            Projectile.DamageType = DamageClass.Ranged;
             Projectile.friendly = true;
             Projectile.light = 0.4f;
 
@@ -109,6 +110,11 @@ namespace ShitMod.Projectiles.Weapons
             return false;
         }
 
+        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            target.AddBuff(ModContent.BuffType<BetterOnFire>(), 200);
+            target.AddBuff(BuffID.Slow, 60);
+        }
         public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
         {
             //колизия

@@ -15,26 +15,27 @@ namespace ShitMod.Items.Weapons.Advanced
             Terraria.GameContent.Creative.CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Kratos");
             Tooltip.SetDefault("'Kratos'");
-            Item.CloneDefaults(ItemID.WoodenBoomerang);
         }
 
         public override void SetDefaults()
         {
             Item.damage = 100;
-            Item.DamageType = DamageClass.Ranged;
-            Item.width = 30;
-            Item.height = 30;
-            Item.useTime = 25;
-            Item.useAnimation = 25;
-            Item.noUseGraphic = true;
-            Item.useStyle = ItemUseStyleID.Swing;
-            Item.knockBack = 3;
-            Item.value = 100000;
-            Item.rare = ItemRarityID.Pink;
-            Item.shoot = ModContent.ProjectileType<KratosProjectile>();
-            Item.shootSpeed = 15f;
+            Item.noMelee = true;
+            Item.width = 20;
+            Item.height = 20;
+            Item.useTime = 15;
+            Item.useAnimation = 15;
+            Item.useStyle = 1;
+            Item.knockBack = 6;
+            Item.rare = ItemRarityID.Blue;
             Item.UseSound = SoundID.Item1;
             Item.autoReuse = true;
+            Item.shoot = ModContent.ProjectileType<KratosProjectile>();
+            Item.shootSpeed = 15f;
+            Item.useTurn = true;
+            Item.maxStack = 1;
+            Item.consumable = false;
+            Item.noUseGraphic = true;
         }
 
         public override bool AltFunctionUse(Player player)
