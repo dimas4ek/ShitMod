@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 using ShitMod.Items.Weapons.xuy;
 using ShitMod.Projectiles;
 
-namespace ShitMod.Items.Weapons;
+namespace ShitMod.Items.Weapons.Other;
 
 public class HoholKiller : ModItem
 {

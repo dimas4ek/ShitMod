@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ShitMod.Items.Weapons;
+namespace ShitMod.Items.Weapons.Other;
 
 public class BloodGreatSword : ModItem
 {
